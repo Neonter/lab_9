@@ -36,9 +36,9 @@ namespace lab_9
             }
         }
         // FYI: if i could change smth i would move thickness to CProfile and we would have -11 lines of code...
-        public CRoundTube(string type = "unknown")
+        public CRoundTube()
         {
-            StructuralType = type;
+            StructuralType = CRoundTube.Type;
         }
         public CRoundTube(double diameter, double thickness, double length, double weight) : base(length, weight)
         {

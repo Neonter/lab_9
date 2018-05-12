@@ -44,7 +44,7 @@ namespace lab_9
         }
         // Access specifier is not mentioned in exercised so we could also use "internal" here, if you are interested read about it ;)
         public double getOverallWeight() { // note: usually method names should start with capital, but as we want to have best grade we will do as it is in instruction...
-            return Length*1000*WeightPerMeter; // there is no information what should be the result unit... so lets assume its [kg] as the m_dWeightPerMeter is [kg/m]
+            return Length/1000*WeightPerMeter; // there is no information what should be the result unit... so lets assume its [kg] as the m_dWeightPerMeter is [kg/m]
         }
         // FYI: when we have such simple method we could use arrow methods (called lambdas):
         // public double getOverallWeight() => Length * 1000 * WeightPerMeter;

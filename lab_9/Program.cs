@@ -21,13 +21,21 @@ namespace lab_9
             // ... presented below profileArray.Lenght is being calculated every iteration instead of just once. But lets still keep it simple as possible
             for(int i = 0; i<profileArray.Length; i++)
             {
-                profileArray[i] = null;
+                profileArray[i] = AssignProfile();
             }
+            Console.WriteLine("lbeamProfile overall weight: " + lBeamProfile.getOverallWeight());
+            Console.WriteLine("roundTubeProfile overall weight: " + roundTubeProfile.getOverallWeight());
+            foreach(var profile in profileArray)
+            {
+                profile.Show();
+                Console.WriteLine("My overall weight: " + profile.getOverallWeight());
+                Console.WriteLine("\n");
+            }
+            Console.ReadKey();
         }
 
-        private static T AssignProfile<T>() // i am really sorry but using generic types makes it easier and shorter
+        private static dynamic AssignProfile()
         {
-            T profileToAdd;
             string profileType;
             do
             {
@@ -37,13 +45,41 @@ namespace lab_9
             dynamic profileTemp;
             if(profileType == CIBeam.Type)
             {
-                profileTemp = new CIBeam();
+                profileTemp = AssignCIBeam();
+      
             } else
             {
-                profileTemp = new CRoundTube();
+                profileTemp = AssignRoundTube();
             }
-            profileToAdd = profileTemp;
-            return profileToAdd; // UNFINISHED!!!
+            return profileTemp;
+        }
+        private static CRoundTube AssignRoundTube()
+        {
+            var roundTube = new CRoundTube();
+            Console.WriteLine("Assigning values to round tube profile...");
+            Console.WriteLine("Input diamater:");
+            roundTube.Diameter = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Input thickenss:");
+            roundTube.Thickness = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Input length:");
+            roundTube.Length = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Input weight per meter:");
+            roundTube.WeightPerMeter = Convert.ToDouble(Console.ReadLine());
+            return roundTube;
+        }
+        private static CIBeam AssignCIBeam()
+        {
+            var cBeam = new CIBeam();
+            Console.WriteLine("Assigning values to round tube profile...");
+            Console.WriteLine("Input heigth:");
+            cBeam.Height= Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Input thickenss:");
+            cBeam.Thickness = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Input length:");
+            cBeam.Length = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Input weight per meter:");
+            cBeam.WeightPerMeter = Convert.ToDouble(Console.ReadLine());
+            return cBeam;
         }
     }
 }

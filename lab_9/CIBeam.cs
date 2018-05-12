@@ -58,7 +58,7 @@ namespace lab_9
         {
             Width = width;
             Height = height;
-            Thickness = Thickness;
+            Thickness = thickness;
             StructuralType = CIBeam.Type;
             // child constructor always calls parent constructor... becouse we have such hierarchy (lets call it family)
             // parent: CProfile, child: CIBeam. So parent has to be created first (like in real life ^^) so naturally its constructor is being called and then its child constructor
@@ -67,7 +67,7 @@ namespace lab_9
 
         public void Show()
         {
-            Console.WriteLine("Hello i am " + CIBeam.Type + " ,here are my parameters: \n lenght: {0}, weight perimeter: {1}, structural type: {2}, height: {3}, width: {4}, thickness: {5}\n", Length, WeightPerMeter, StructuralType, Height, Width, Thickness);
+            Console.WriteLine("Hello i am " + CIBeam.Type + " ,here are my parameters: \n lenght: {0}, weight perimeter: {1}, structural type: {2}, height: {3}, width: {4}, thickness: {5} \n", Length, WeightPerMeter, StructuralType, Height, Width, Thickness);
             // note: normally if a line is quite long its good to split it into 2 or more lines but lets not make any unnecessary changes
         }
     }
